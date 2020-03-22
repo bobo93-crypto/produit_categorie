@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<body>
+<h1>hello</h1>
+<h:form>
+	<h:panelGrid columns="2">
+		<h:outputText value="Id:" />
+		<h:inputText value="#{produitBean.produit.id}"
+		pt:placeholder="id:" />
+		<h:outputText value="nom:" />
+		<h:inputText value="#{produitBean.produit.nom}"
+		pt:placeholder="nom:" />
+		<h:outputText value="prix:" />
+		<h:inputText value="#{produitBean.produit.pu}"
+		pt:placeholder="prix:" />
+		<h:outputText value="quantity:" />
+		<h:inputText value="#{produitBean.produit.qte}"
+		pt:placeholder="qte:" />
+		
+		<h:outputText  value="categorie"/>
+		<h:form >
+		<h:selectOneMenu value="#{produitBean.selectedCategorie}">
+			<f:selectItem 
+			itemLabel="--"/>
+			<f:selectItems value="#{produitBean.categories}" var="c"
+				itemLabel="#{c.nom}" itemValue="#{c.id}" />
+				
+		</h:selectOneMenu>
+		</h:form>
+		
+		<h:commandButton value="Add" action="#{produitBean.save()}" />
+		<h:commandButton value="Nouvelle_Categorie" action="#{produitBean.categoriepage()}" />
+	</h:panelGrid>
+
+
+</h:form> 
+
+</body>
+
+</html>
